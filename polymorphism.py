@@ -1,18 +1,59 @@
-class Complex:
-    def __init__(self, real, imag):
-        self.real = real
-        self.imag = imag
-    
-    def __add__(self, other):  
-        real = self.real + other.real
-        imag = self.imag + other.imag
-        return Complex(real, imag)
-    
-    def __str__(self):
-        return f"{self.real} + {self.imag}i"
+# Base class
+class Messenger:
+    def use_keyboard(self):
+        print("Using keyboard")
+
+    def send_message(self):
+        print("Text message sent")
+
+    def receive_message(self):
+        print("Text message received")
 
 
-c1 = Complex(3, 5)
-c2 = Complex(1, 2)
-c3 = c1 + c2  
-print(c3)  
+# Child class 1
+class WhatsApp(Messenger):
+    def send_message(self):
+        print("WhatsApp: Text, voice, and video message sent")
+
+    def receive_message(self):
+        print("WhatsApp: Text, voice, and video message received")
+
+
+# Child class 2
+class FacebookMessenger(Messenger):
+    def send_message(self):
+        print("Facebook Messenger: Text, voice, and video message sent")
+
+    def receive_message(self):
+        print("Facebook Messenger: Text, voice, and video message received")
+
+
+# Child class 3
+class InstaMessenger(Messenger):
+    def send_message(self):
+        print("Instagram Messenger: Text, voice, and video message sent")
+
+    def receive_message(self):
+        print("Instagram Messenger: Text, voice, and video message received")
+
+
+# Polymorphic function
+def use_messenger(ref):
+    ref.use_keyboard()
+    ref.send_message()
+    ref.receive_message()
+
+
+whatsapp = WhatsApp()
+facebook = FacebookMessenger()
+instagram = InstaMessenger()
+
+
+print("--- WhatsApp ---")
+use_messenger(whatsapp)
+
+print("\n--- Facebook Messenger ---")
+use_messenger(facebook)
+
+print("\n--- Instagram Messenger ---")
+use_messenger(instagram)
