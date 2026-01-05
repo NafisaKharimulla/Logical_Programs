@@ -1,7 +1,7 @@
 import math
 
-A = int(input())
-B = int(input())
+A = int(input()) #Starting Range
+B = int(input()) #Ending Range
 
 def is_prime(n):
     if n < 2:
